@@ -1,1 +1,869 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="renderer" content="webkit"><meta name="force-rendering" content="webkit"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><title>Noiseの音乐站</title><meta name="keywords" content="Noiseの音乐站,播放器,在线音乐,在线播放器,音乐播放器,在线音乐播放器,Noiseの在线音乐播放器"><meta name="description" content="Noiseの在线音乐播放器"><link rel="stylesheet" href="https://at.alicdn.com/t/font_1367495_eza6utwbiqn.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fontawesome-pro@master/css/all.min.css" media="all"><style type="text/css">noscript{position:fixed;top:0;right:0;bottom:0;left:0;z-index:1996520;background:#fff;text-align:center;font-weight:700;font-size:34px;line-height:100px}#appLoading{position:fixed;top:0;left:0;z-index:1996;width:100%;height:100%;font-size:20px;background:#fff}#appLoading.removeAnimate{animation:removeAnimate .3s .5s 1 both}#appLoading .loader{position:absolute;top:50%;left:50%;width:5em;height:5em;transform:translate(-50%,-50%) rotate(165deg)}#appLoading .loader::after,#appLoading .loader::before{content:'';position:absolute;top:50%;left:50%;display:block;width:1em;height:1em;border-radius:.5em;transform:translate(-50%,-50%)}#appLoading .loader::before{animation:before 2s infinite}#appLoading .loader::after{animation:after 2s infinite}@keyframes before{0%{width:1em;box-shadow:2em -1em rgba(225,20,98,.75),-2em 1em rgba(111,202,220,.75)}35%{width:5em;box-shadow:0 -1em rgba(225,20,98,.75),0 1em rgba(111,202,220,.75)}70%{width:1em;box-shadow:-2em -1em rgba(225,20,98,.75),2em 1em rgba(111,202,220,.75)}100%{box-shadow:2em -1em rgba(225,20,98,.75),-2em 1em rgba(111,202,220,.75)}}@keyframes after{0%{height:1em;box-shadow:1em 2em rgba(61,184,143,.75),-1em -2em rgba(233,169,32,.75)}35%{height:5em;box-shadow:1em 0 rgba(61,184,143,.75),-1em 0 rgba(233,169,32,.75)}70%{height:1em;box-shadow:1em -2em rgba(61,184,143,.75),-1em 2em rgba(233,169,32,.75)}100%{box-shadow:1em 2em rgba(61,184,143,.75),-1em -2em rgba(233,169,32,.75)}}@keyframes removeAnimate{from{opacity:1}to{opacity:0}}</style><script>!function(){if(window.ActiveXObject||"ActiveXObject"in window)window.location="./prompt.html"}()</script><link href="css/chunk-0aca0334.6c8c77dd.css" rel="prefetch"><link href="css/chunk-234fd7ed.e1bc27a2.css" rel="prefetch"><link href="css/chunk-2d717b2f.05c430e3.css" rel="prefetch"><link href="css/chunk-481feede.f9a34d59.css" rel="prefetch"><link href="css/chunk-5c36d191.baed9d5c.css" rel="prefetch"><link href="css/chunk-646cd6e8.f6315277.css" rel="prefetch"><link href="css/chunk-69026be5.285f481b.css" rel="prefetch"><link href="css/chunk-ed24c9e8.2e2bcb4f.css" rel="prefetch"><link href="js/chunk-0aca0334.0e85ddaa.js" rel="prefetch"><link href="js/chunk-234fd7ed.fa0abdde.js" rel="prefetch"><link href="js/chunk-2d717b2f.b59eeaa1.js" rel="prefetch"><link href="js/chunk-481feede.e4c1a173.js" rel="prefetch"><link href="js/chunk-5c36d191.c71cc807.js" rel="prefetch"><link href="js/chunk-646cd6e8.e14b05a2.js" rel="prefetch"><link href="js/chunk-69026be5.e7a0686f.js" rel="prefetch"><link href="js/chunk-ed24c9e8.b030eaf3.js" rel="prefetch"><link href="css/app.872bf505.css" rel="preload" as="style"><link href="js/app.50966c2a.js" rel="preload" as="script"><link href="js/chunk-vendors.54d9f541.js" rel="preload" as="script"><link href="css/app.872bf505.css" rel="stylesheet"></head><body><noscript><meta http-equiv="refresh" content="0; ./error.html"></noscript><div id="appLoading"><div class="loader"></div></div><div id="mmPlayer"></div><script>function showLrc(){"0"==(document.cookie.replace(/(?:(?:^|.*;\s*)night\s*\=\s*([^;]*).*$)|^.*$/,"$1")||"0")?(document.body.classList.add("show-lrc"),document.getElementById("showlrc").innerHTML="收起全屏",document.cookie="night=1;path=/"):(document.body.classList.remove("show-lrc"),document.getElementById("showlrc").innerHTML="全屏歌词",document.cookie="night=0;path=/")}</script><script src="js/chunk-vendors.54d9f541.js"></script><script src="js/app.50966c2a.js"></script></body></html>
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<!--2022-noise-->
+	<!--Code by. noise-->
+	<!--noise~-->
+	<title>MergeMusic</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios@0.21.0/dist/axios.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue-clipboard2@0.3.1/dist/vue-clipboard.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue-router@3.4.9/dist/vue-router.min.js"></script>
+	<!--引入思源字体-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:100,300,400,500,700,900">
+
+	<style>
+		#app {
+			font-family: Noto Serif SC;
+			font-style: normal;
+			font-weight: 500;
+		}
+
+		#title {
+			animation: change 10s linear 0s infinite;
+			text-decoration: none;
+			outline: none;
+			border: none;
+			text-align: center;
+			font-weight: 500;
+			font-size: 2.5em;
+		}
+
+		@keyframes change {
+			0% {
+				color: #4cf;
+			}
+
+			50% {
+				color: #fac;
+			}
+
+			100% {
+				color: #4cf;
+			}
+		}
+
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			width: 100%;
+			font-family: Noto Serif SC;
+			font-style: normal;
+			font-weight: 500;
+		}
+
+		#bgimg {
+			position: fixed;
+			height: 100%;
+			width: 100%;
+			background-size: cover;
+			background-position: center center;
+			opacity: 0.7;
+			z-index: 0;
+			filter: blur(5px);
+		}
+
+		#sand {
+			font-size: small;
+			color: #aaa;
+			text-align: center;
+		}
+
+		.op {
+			background-color: rgba(255, 255, 255, 0.75) !important;
+		}
+
+		.op0,
+		.v-tabs-bar,
+		.v-tabs-items {
+			background-color: rgba(255, 255, 255, 0) !important;
+		}
+
+
+		.translist-move {
+			transition: all 0.3s;
+		}
+
+		.translist-enter-active,
+		.translist-leave-active {
+			transition: all 0.3s;
+		}
+
+		.translist-enter,
+		.translist-leave-to
+
+		/* .list-leave-active for below version 2.1.8 */
+			{
+			opacity: 0;
+			transform: translateY(30px);
+		}
+
+		::selection {
+			color: #fff;
+			background: #00bcd4;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="bgimg"></div>
+	<div id="app">
+		<v-app class="op0">
+			<v-container fluid>
+				<v-row justify="center">
+					<v-col class="pa-0" xl=6 lg=7 md=8 sm=10 xs=12>
+						<v-card class="op" justify="center" outlined>
+							<!-- <p class="ma-0 mb-n4" id="sand">noise</p> -->
+							<v-container class="mb-n3">
+								<v-row justify="center">
+									<v-chip color="pink lighten-3" small outlined
+										href="https://www.noisesite.cn" target="_blank">
+										<v-icon small>mdi-heart</v-icon>知识效率集
+									</v-chip>
+									<v-chip color="cyan lighten-3" small outlined
+										href="https://www.noisework.cn" target="_blank">
+										<v-icon small>mdi-compass</v-icon>引导主页
+									</v-chip>
+								</v-row>
+							</v-container>
+
+							<h1 id="title">MergeMusic</h1>
+							<p class="blue-grey--text text--darken-2 mx-2 mb-0" style="text-align: center;">{{hitokoto}}
+							</p>
+
+							<v-row class="ma-2" justify="center">
+								<v-col class="pa-0" cols=12>
+									<v-text-field outlined dense hide-details color="cyan" label="搜索" v-model="name"
+										append-icon="search" @click:append="off=0;Search();"
+										@keyup.13="off=0;Search();">
+									</v-text-field>
+								</v-col>
+
+								<v-col class="px-0 pr-1" cols=6>
+									<v-select outlined dense hide-details color="cyan" item-color="cyan" label="平台"
+										v-model="platform" :items="platforms"></v-select>
+								</v-col>
+								<v-col class="px-0 pl-1" cols=6>
+									<v-select outlined dense hide-details color="cyan" item-color="cyan" label="类型"
+										v-model="type" :items="types">
+									</v-select>
+								</v-col>
+
+								<v-col class="pa-0 pr-1 pb-2" cols=4>
+									<v-btn block outlined @click="looptype=(looptype+1)%3">{{looptypes[looptype].text}}
+									</v-btn>
+								</v-col>
+								<v-col class="pa-0 px-1 pb-2" cols=4>
+									<v-btn block outlined @click="PlayNext()">下一首</v-btn>
+								</v-col>
+								<v-col class="pa-0 pl-1 pb-2" cols=4>
+									<v-btn block outlined :disabled="!nowmusic.mid"
+										@click="dialog_data=nowmusic;dialog_open=true;">详情</v-btn>
+								</v-col>
+
+								<audio style="width:100%;outline: medium;" ref="player" id="player"
+									:src="nowmusic.src?nowmusic.src:''" controls="controls" autoplay="autoplay"></audio>
+
+								<v-col cols=12 class="pa-0">
+									<p class="blue-grey--text text--darken-2 ma-1"
+										style="text-align: center;font-size:1.5em">{{nowmusic.name}}</p>
+								</v-col>
+								<v-col cols=12 class="pa-0">
+									<p class="blue-grey--text text--darken-2 ma-1 mb-0"
+										style="text-align: center;font-size:1.25em">{{nowlrc}}</p>
+								</v-col>
+								<v-col cols=12 class="pa-0">
+									<p class="blue-grey--text text--darken-2 mx-1 my-0"
+										style="text-align: center;font-size:1em">{{nowtlrc}}</p>
+								</v-col>
+
+							</v-row>
+						</v-card>
+
+						<v-card class="op">
+							<v-tabs grow v-model="tab" color="cyan">
+								<v-tab v-for="i in tabs" :key="i.tab">{{i.text}}</v-tab>
+							</v-tabs>
+
+							<v-tabs-items v-model="tab">
+								<v-tab-item key="search">
+									<v-container>
+										<v-row>
+											<v-col class="pa-0 px-1" cols=6>
+												<v-btn outlined block @click="AddAll('replace')">播放全部</v-btn>
+											</v-col>
+											<v-col class="pa-0 px-1" cols=6>
+												<v-btn outlined block @click="AddAll('back')">添加全部</v-btn>
+											</v-col>
+										</v-row>
+									</v-container>
+
+									<v-expand-transition>
+										<v-list class="op0" two-line>
+											<v-list-item-group>
+												<music-list v-for="(item,index) in search_list" :music="item"
+													:key="index" :index="index"></music-list>
+											</v-list-item-group>
+										</v-list>
+									</v-expand-transition>
+
+
+									<v-btn block color="cyan lighten-4" @click="Search()" :loading="searching"
+										:disabled="end">
+										{{end?'木有了...':'加载更多'}}
+									</v-btn>
+								</v-tab-item>
+
+								<v-tab-item key="list">
+									<v-container>
+										<v-row>
+											<v-col class="pa-0 px-1" cols=6>
+												<v-btn outlined block @click="ClearPlayList()">清空列表</v-btn>
+											</v-col>
+											<v-col class="pa-0 px-1" cols=6>
+												<v-btn outlined block @click="ChangeSaveList()">
+													保存列表：{{save_list?"开":"关"}}
+												</v-btn>
+											</v-col>
+										</v-row>
+									</v-container>
+
+									<v-list class="op0" two-line>
+										<v-list-item-group>
+											<transition-group name="translist">
+												<play-music-list v-for="(item,index) in play_list" :music="item"
+													:key="item.mid" :index="index"></play-music-list>
+											</transition-group>
+										</v-list-item-group>
+									</v-list>
+
+								</v-tab-item>
+							</v-tabs-items>
+						</v-card>
+
+					</v-col>
+				</v-row>
+
+				<v-dialog v-model="dialog_open">
+					<v-card v-if="dialog_open">
+						<v-card-title>{{dialog_data.name}} - {{dialog_data.artist.join(" | ")}}</v-card-title>
+						<v-container>
+							<v-row justify="center">
+								<v-col v-if="dialog_data.type=='music' || dialog_data.type=='p'" cols=11>
+									<p class="ma-0">
+										mid：{{dialog_data.mid}}
+									</p>
+								</v-col>
+
+								<v-col cols=11>
+									<p class="ma-0">专辑：
+										<v-chip small outlined v-if="dialog_data.album.name" :color="dialog_data.color"
+											@click="StartSearch(dialog_data.album.name)">
+											{{dialog_data.album.name}}</v-chip>
+									</p>
+								</v-col>
+
+								<v-col cols=11>
+									<p class="ma-0">作者：
+										<v-chip small outlined v-for="i in dialog_data.artist" :key="i"
+											:color="dialog_data.color" @click="StartSearch(i)">{{i}}</v-chip>
+									</p>
+								</v-col>
+
+								<v-col cols=11>
+									<v-btn rounded outlined class="my-1" :color="dialog_data.color"
+										v-if="['music','p','list','fav','up'].indexOf(dialog_data.type)!=-1"
+										@click="AddMusic(dialog_data,'replace')">
+										<v-icon left>play_arrow</v-icon>
+										替换播放
+									</v-btn>
+									<v-btn rounded outlined class="my-1" :color="dialog_data.color"
+										v-if="['music','p','list','fav','up'].indexOf(dialog_data.type)!=-1"
+										@click="AddMusic(dialog_data,'back')">
+										<v-icon left>add</v-icon>
+										添加播放
+									</v-btn>
+									<v-btn rounded outlined class="my-1" :color="dialog_data.color"
+										v-if="dialog_data.type=='music'" @click="Download(dialog_data.mid,'music')">
+										<v-icon left>file_download</v-icon>
+										下载歌曲
+									</v-btn>
+									<v-btn rounded outlined class="my-1" :color="dialog_data.color"
+										v-if="dialog_data.type=='music'" @click="Download(dialog_data.mid,'lrc')">
+										<v-icon left>receipt</v-icon>
+										复制歌词
+									</v-btn>
+									<v-btn rounded outlined class="my-1" :color="dialog_data.color"
+										v-if="dialog_data.type=='music'" @click="Download(dialog_data.mid,'img')">
+										<v-icon left>image</v-icon>
+										封面图片
+									</v-btn>
+									<v-btn rounded outlined class="my-1" :color="dialog_data.color"
+										v-if="dialog_data.type=='music'" @click="Download(dialog_data.mid,'share')">
+										<v-icon left>share</v-icon>
+										分享链接
+									</v-btn>
+								</v-col>
+							</v-row>
+						</v-container>
+					</v-card>
+				</v-dialog>
+
+				<v-dialog v-model="clip_dialog">
+					<v-card>
+						<v-card-title>点击复制到剪贴板</v-card-title>
+						<v-card-actions>
+							<v-spacer></v-spacer>
+							<v-btn color="green darken-1" text v-clipboard:copy="clip_tmp"
+								v-clipboard:success="ClipSuccess" v-clipboard:error="">复制</v-btn>
+						</v-card-actions>
+					</v-card>
+				</v-dialog>
+
+				<v-dialog v-model="save_list_dialog" persistent>
+					<v-card>
+						<v-card-title>请选择要保留的列表
+							<v-btn block color="cyan" text @click="SaveListDialogCallback(0)">使用保存的列表覆盖当前列表</v-btn>
+							<v-btn block color="cyan" text @click="SaveListDialogCallback(1)">使用当前列表覆盖保存的列表</v-btn>
+						</v-card-title>
+					</v-card>
+				</v-dialog>
+
+				<v-snackbar v-model="snackbar">
+					{{snackbar_msg}}
+					<template v-slot:action="{attrs}">
+						<v-btn color="pink" text v-bind="attrs" @click="snackbar=false">
+							Close
+						</v-btn>
+					</template>
+				</v-snackbar>
+
+			</v-container>
+		</v-app>
+	</div>
+
+
+	<script>
+		VueClipboard.config.autoSetContainer = true
+
+		const routes = []
+		const router = new VueRouter({
+			routes // (缩写) 相当于 routes: routes
+		})
+
+		//搜索列表组件
+		Vue.component("music-list", {
+			props: ["music", "index"],
+			data() {
+				return {
+					"list": []
+				};
+			},
+			template: `
+			<div>
+			<v-list-item @click="music.type=='music'?_this.PlayMusic(music.mid):GetList()" :color="music.color">
+				<v-list-item-avatar>
+					<v-chip outlined :color="music.color">{{index+1}}</v-chip>
+				</v-list-item-avatar>
+
+				<v-list-item-content>
+					<v-list-item-title>{{music.name}}</v-list-item-title>
+					<v-list-item-subtitle>
+							<template v-if="music.album.name">{{music.album.name}} - </template>
+							{{music.artist.join(" | ")}}
+					</v-list-item-subtitle>
+				</v-list-item-content>
+
+				<v-list-item-action>
+					<v-btn icon :color="music.color" @click.stop="OpenDialog()">
+						<v-icon :color="music.color">more_vert</v-icon>
+					</v-btn>
+				</v-list-item-action>
+			</v-list-item>
+			
+
+			<v-expand-transition>
+				<v-list class="op0" v-if="list.length" two-line>
+					<v-divider></v-divider>
+					<v-list-item-group>
+						<music-list v-for="(item,index) in list" :music="item" :key="index" :index="index"></music-list>
+					</v-list-item-group>
+					<v-divider></v-divider>
+				</v-list>
+			</v-expand-transition>
+			</div>
+				`,
+			methods: {
+				GetList() {
+					if (this.list.length) {
+						this.list = [];
+						return;
+					}
+					axios.get(_this.apiurl + "/music/", {
+						params: {
+							mid: this.music.mid,
+							type: this.music.type,
+						}
+					})
+						.then((r) => {
+							this.list = r.data;
+						});
+				},
+				OpenDialog() {
+					_this.dialog_data = this.music;
+					_this.dialog_open = true;
+				}
+			},
+			watch: {
+				list() {
+					//for(i in this.list)this.list[i].color="#00A1D6";
+					for (i in this.list) this.list[i].color = _this.colors[this.music.mid[0]];
+				},
+				music() {
+					this.list = [];
+				}
+			}
+		});
+
+
+		//播放列表组件
+		Vue.component("play-music-list", {
+			props: ["music", "index"],
+			template: `
+			<div>
+			<v-list-item @click="_this.AddMusic(music,'front')" :color="music.color">
+				<v-list-item-avatar>
+					<v-chip outlined :color="music.color">{{index+1}}</v-chip>
+				</v-list-item-avatar>
+
+				<v-list-item-content>
+					<v-list-item-title>{{music.name}}</v-list-item-title>
+					<v-list-item-subtitle>
+							<v-btn icon small :color="music.color" @click.stop="GoUp()">
+								<v-icon>arrow_upward</v-icon>
+							</v-btn>
+							<v-btn icon small :color="music.color" @click.stop="GoDown()">
+								<v-icon>arrow_downward</v-icon>
+							</v-btn>
+							<v-btn icon small :color="music.color" @click.stop="Delete()">
+								<v-icon>delete</v-icon>
+							</v-btn>
+							<template v-if="music.album.name">{{music.album.name}} - </template>
+							{{music.artist.join(" | ")}}
+					</v-list-item-subtitle>
+				</v-list-item-content>
+
+				<v-list-item-action>
+					<v-btn icon :color="music.color" @click.stop="OpenDialog()">
+						<v-icon :color="music.color">more_vert</v-icon>
+					</v-btn>
+				</v-list-item-action>
+			</v-list-item>
+			</div>
+				`,
+			methods: {
+				GoUp() {
+					key = this.index;
+					pl = _this.play_list.concat();
+					if (key == 0) return;
+					key2 = (key - 1 + pl.length) % pl.length;
+					Vue.set(_this.play_list, key, pl[key2]);
+					Vue.set(_this.play_list, key2, pl[key]);
+				},
+				GoDown() {
+					key = this.index;
+					pl = _this.play_list.concat();
+					if (key == pl.length - 1) return;
+					key2 = (key + 1 + pl.length) % pl.length;
+					Vue.set(_this.play_list, key, pl[key2]);
+					Vue.set(_this.play_list, key2, pl[key]);
+				},
+				Delete() {
+					_this.play_list.splice(this.index, 1);
+				},
+				OpenDialog() {
+					_this.dialog_data = this.music;
+					_this.dialog_open = true;
+				}
+			}
+		});
+
+		var vm = new Vue({ //主应用
+			vuetify: new Vuetify(),
+			el: "#app",
+			router,
+			data: {
+				apiurl: "https://1426531544223608.cn-hangzhou.fc.aliyuncs.com/2016-08-15/proxy/music.LATEST/all",
+				// apiurl: "http://127.0.0.1:9000",
+				name: "",
+				platform: "C",
+				type: "music",
+				off: 0,
+				lim: 20,
+				end: false,
+				searching: false,
+				nowmusic: {},
+				nowlrc: "",
+				nowtlrc: "",
+				looptype: 0,
+				hitokoto: "",
+				show_play_list: false,
+				dialog_open: false,
+				dialog_data: {},
+				clip_tmp: "",
+				clip_dialog: false,
+				snackbar: false,
+				snackbar_msg: "",
+				tab: 0,
+				tabs: [
+					{ text: "搜索", tab: "search" },
+					{ text: "列表", tab: "list" },
+				],
+				platforms: [
+					{ "text": "网易云", "value": "C" },
+					{ "text": "QQ", "value": "Q" },
+					{ "text": "bilibili", "value": "B" },
+					// { "text": "SakuraCloud", "value": "S" }
+				],
+				types: [
+					{ "text": "歌曲", "value": "music" },
+					{ "text": "歌单", "value": "list" },
+					{ "text": "用户|UP主", "value": "user" },
+					{ "text": "歌词", "value": "lrc" }
+				],
+				looptypes: [
+					{ "text": "顺序", "value": "0" },
+					{ "text": "单曲", "value": "1" },
+					{ "text": "随机", "value": "2" }
+				],
+				colors: {
+					"C": "#C20C0C",
+					"Q": "#68D9A3",
+					"B": "#FCA6BF",
+					"S": "#F9D2E0"
+				},
+				search_list: [],
+				play_list: [],
+				auto_save: true,
+				save_list: true,
+				save_list_dialog: false,
+			},
+			methods: {
+				Search() { //搜索
+					this.show_play_list = false;
+					this.tab = 0;
+					this.dialog_open = false;
+					//if(this.searching)return;
+					//console.log(this.platform+this.type+this.name);
+					this.searching = true;
+					color = this.colors[this.platform];
+					axios.get(this.apiurl + "/search/", {
+						params: {
+							platform: this.platform,
+							keyword: encodeURIComponent(this.name),
+							type: this.type,
+							offset: this.off,
+							limit: this.lim
+						}
+					}).then((r) => {
+						r = r.data;
+						if (this.off == 0) this.end = false, this.search_list = []; //搜索归零
+						if (r.length == 0) this.end = true;
+						if (!this.end) {
+							for (i in r) r[i].color = color;
+							this.search_list = this.search_list.concat(r);
+							if (r.length < this.lim) this.end = true;
+						}
+						this.off++;
+						this.searching = false;
+					});
+				},
+				PlayMusic(mid) { //播放音乐
+					axios.get(this.apiurl + "/music/", {
+						params: {
+							mid: mid,
+							type: "music",
+						}
+					}).then((response) => {
+						let mmusic=JSON.parse(JSON.stringify(response.data));
+						this.nowmusic = response.data
+						document.querySelector("#bgimg").style.backgroundImage = "url(" + this.nowmusic.img + ")";
+						this.nowlrc = this.nowtlrc = ""
+						this.nowmusic.lrcs = this.DecodeLrc(response.data.lrc);
+						if (response.data.tlrc) this.nowmusic.tlrcs = this.DecodeLrc(response.data.tlrc);
+
+						if (this.nowmusic.src == "") {
+							this.nowmusic.name = "出错了Orz将移除此歌";
+							setTimeout(this.Delete, 3000, this.nowmusic.mid);
+						}
+
+						delete mmusic.src;
+						delete mmusic.img;
+						delete mmusic.lrc;
+						delete mmusic.tlrc;
+						this.AddList([mmusic], "front");
+					});
+				},
+				DecodeLrc(s) { //歌词解码
+					l = s.split("\n");
+					ls = [];
+					for (i = 0; i < l.length; i++) {
+						if (l[i] == "") continue;
+						time_str = l[i].slice(1, l[i].search("]"));
+						t = time_str.split(":")[0] * 60 + time_str.split(":")[1] * 1.0;
+						ls.push([t, l[i].slice(l[i].search("]") + 1)]);
+					}
+					return ls;
+				},
+				Delete(mid) { //从播放列表删除歌曲
+					for (i in this.play_list) {
+						if (this.play_list[i].mid == mid) {
+							this.play_list.splice(i, 1);
+							break;
+						}
+					}
+				},
+				UpLrc() { //歌词更新
+					if (!this.nowmusic.lrcs) return;
+					t = this.$refs["player"].currentTime;
+					for (i = this.nowmusic.lrcs.length - 1; i >= 0; i--) {
+						if (t >= this.nowmusic.lrcs[i][0]) {
+							this.nowlrc = this.nowmusic.lrcs[i][1];
+							break;
+						}
+					}
+
+					if (!this.nowmusic.tlrcs) return;
+					t = this.$refs["player"].currentTime;
+					for (i = this.nowmusic.tlrcs.length - 1; i >= 0; i--) {
+						if (t >= this.nowmusic.tlrcs[i][0]) {
+							this.nowtlrc = this.nowmusic.tlrcs[i][1];
+							break;
+						}
+					}
+				},
+				PlayNext() { //下一首
+					au = this.$refs['player'];
+					if (this.looptype == 0) {
+						if (this.play_list.length) {
+							this.play_list.push(this.play_list.shift());
+							if (this.play_list.length == 1) au.currentTime = 0, au.play();
+						}
+						else {
+							this.nowmusic.src = "";
+						}
+					}
+					if (this.looptype == 2) {
+						if (this.play_list.length) {
+							ind = Math.floor(Math.random() * this.play_list.length)
+							if (ind == 0) au.currentTime = 0, au.play();
+							else this.play_list.unshift(this.play_list.splice(ind, 1)[0]);
+						}
+						else {
+							this.nowmusic.src = "";
+						}
+					}
+					if (this.looptype == 1) {
+						au.currentTime = 0;
+						au.play();
+					}
+				},
+				StartSearch(s) { //新建搜索
+					this.name = s;
+					this.off = 0;
+					this.type = "music";
+					this.Search();
+				},
+				Download(mid, type) { //下载
+					if (type == 'share') {
+						this.clip_tmp = window.location.origin + window.location.pathname + "#/?mid=" + mid;
+						this.clip_dialog = true;
+						return;
+					}
+					axios.get(this.apiurl + "/music/", {
+						params: {
+							mid: mid,
+							type: "music",
+						}
+					})
+						.then((r) => {
+							if (type == "music") {
+								window.open(r.data.src, "_blank");
+							}
+							if (type == "lrc") {
+								this.clip_tmp = r.data.lrc + "\n\n" + r.data.tlrc;
+								this.clip_dialog = true;
+							}
+							if (type == "img") {
+								window.open(r.data.img, "_blank");
+							}
+						})
+				},
+				AddMusic(music, type) { //添加歌曲或歌单到播放列表
+					if (music.type == "music") this.AddList([music], type);
+					else { //如果是歌单什么的就要先获取歌曲列表（解包）
+						axios.get(this.apiurl + "/music/", {
+							params: {
+								mid: music.mid,
+								type: music.type,
+							}
+						}).then((r) => {
+							this.AddList(r.data, type);
+						}).catch((e) => { }).then(() => { this.Delete(music.mid); });
+					}
+				},
+				AddList(list, type) { //添加数个音乐到播放列表
+					if (type == "replace") { //替换
+						this.play_list = list.concat();
+						this.tab = 1;
+					}
+					else {
+						music_list = [];
+						if (type == "front") { //添加到前部 需要去重
+							for (i in list) music_list.push(list[i].mid);
+							for (i in this.play_list) if (music_list.indexOf(this.play_list[i].mid) != -1) this.play_list.splice(i, 1);
+							this.play_list = list.concat(this.play_list);
+						}
+						else { //添加到尾部
+							for (i in this.play_list) music_list.push(this.play_list[i].mid);
+							for (i in list) if (music_list.indexOf(list[i].mid) != -1) list.splice(i, 1);
+							this.play_list = this.play_list.concat(list);
+							this.Msg("已添加到列表(･∀･)");
+						}
+					}
+
+				},
+				AddAll(type) { //把搜索列表中的添加到播放列表
+					this.AddList(this.search_list.concat(), type);
+				},
+				UpHitokoto() { //更新一言
+					axios.get("https://v1.hitokoto.cn/")
+						.then((res) => {
+							this.hitokoto = res.data.hitokoto + "  ——" + res.data.from;
+						})
+				},
+				ClipSuccess(e) { //剪贴板回调
+					this.clip_dialog = false;
+					this.Msg("复制成功");
+				},
+				ClearPlayList() { //清空播放列表
+					this.play_list = [];
+					this.nowmusic = {};
+					this.nowlrc = this.nowtlrc = "";
+				},
+				ChangeSaveList() { //更改同步列表状态
+					this.save_list = !this.save_list;
+					if (this.save_list == true && localStorage.getItem("play_list")) {
+						this.save_list_dialog = true;
+					}
+				},
+				SaveListDialogCallback(method) {
+					if (method == 0) {
+						this.play_list = JSON.parse(localStorage.getItem("play_list"));
+					}
+					if (method == 1) {
+						localStorage.setItem("play_list", JSON.stringify(this.play_list));
+					}
+					this.save_list_dialog = false;
+				},
+				Msg(msg) { //提示框
+					this.snackbar_msg = msg;
+					this.snackbar = true;
+				}
+			},
+			watch: {
+				play_list() {
+					//同步
+					if (this.save_list) {
+						localStorage.setItem("play_list", JSON.stringify(this.play_list));
+					}
+
+					//添加颜色
+					for (i in this.play_list) {
+						this.play_list[i].color = this.colors[this.play_list[i].mid.substr(0, 1)];
+					}
+
+					//播放列表第一个
+					if (this.play_list.length) {
+						let mmusic = this.play_list[0];
+						if (this.nowmusic.mid != mmusic.mid) {
+							if (mmusic.type == "music") this.PlayMusic(mmusic.mid);
+							else {
+								this.AddMusic(mmusic, 'front');
+							}
+						}
+					}
+					else {
+						this.nowmusic = {};
+					}
+				},
+				save_list(){
+					localStorage.setItem("save_list",JSON.parse(this.save_list));
+				}
+			},
+			created() {
+				_this = this;
+
+				axios.interceptors.response.use(response => {
+					// 2xx 范围内的状态码都会触发该函数。
+					// 对响应数据做点什么
+					return response;
+				}, error => {
+					// 超出 2xx 范围的状态码都会触发该函数。
+					// 对响应错误做点什么
+					this.Msg("出错啦QwQ");
+					return Promise.reject(error);
+				});
+
+				setInterval(this.UpLrc, 100);
+				this.UpHitokoto();
+				setInterval(this.UpHitokoto, 10000);
+				setTimeout(() => {
+					this.$refs["player"].addEventListener('ended', () => {
+						this.PlayNext();
+					});
+				}, 1000)
+
+				if(localStorage.getItem("save_list"))
+				{
+					this.save_list=JSON.parse(localStorage.getItem("save_list"));
+				}
+				if (this.save_list && localStorage.getItem("play_list")) {
+					this.play_list = JSON.parse(localStorage.getItem("play_list"));
+					this.tab = 1;
+				}
+				if (this.$route.query.mid) {
+					this.show_play_list = true;
+					this.tab = 1;
+					this.PlayMusic(this.$route.query.mid);
+				}
+
+				this.Msg("欢迎访问");
+			}
+		});
+
+	</script>
+
+	<script>
+		var _hmt = _hmt || [];
+		(function () {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?f2df3b6029c8fc35e1d4f5986f53b914";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+
+
+</body>
+
+</html>
